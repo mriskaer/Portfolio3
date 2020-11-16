@@ -7,17 +7,25 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    static String url = "jdbc:sqlite:C:\\Users\\User\\Documents\\Datalogi\\Portfolio3_database";
+    static DataConnection dataConnection = new DataConnection(url);
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Controller controller = new Controller(dataConnection);
+
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("sample.Student/Course Interface");
+        primaryStage.setScene(new Scene(root, 600, 475));
         primaryStage.show();
     }
 
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args)
+    {
+
         launch(args);
     }
+
 }
